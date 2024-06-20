@@ -3,7 +3,6 @@ import { useRef } from 'react';
 
 function TodoInput({ addTodo }) {
   let inputRef = useRef('');
-  inputRef.current.value = '';
   function handleSubmit(e) {
     e.preventDefault();
     addTodo(inputRef.current.value);
