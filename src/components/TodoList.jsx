@@ -1,9 +1,10 @@
 import TodoItem from './TodoItem';
-function TodoList({ todos }) {
+
+function TodoList({ todos, onDelete }) {
   return (
     <ul className="divide-y divide-gray-200">
-      {todos.map((todo, index) => (
-        <TodoItem key={index} {...todo} />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} {...todo} onDelete={onDelete} />
       ))}
     </ul>
   );
