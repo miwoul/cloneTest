@@ -3,10 +3,12 @@ import { useRef } from 'react';
 
 function TodoInput({ addTodo }) {
   let inputRef = useRef('');
-  function handleSubmit(e) {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     addTodo(inputRef.current.value);
-  }
+    inputRef.current.value = ''; // 입력 후 필드 초기화
+  };
 
   return (
     <form
@@ -18,7 +20,7 @@ function TodoInput({ addTodo }) {
         type="text"
         placeholder="Add your items"
         className="focus:ring-0 border-none outline-none p-2 flex-grow bg-yellow-100"
-      ></input>
+      />
       <button
         type="submit"
         className="bg-amber-200 rounded-full text-white p-2 shadow-md hover:bg-amber-100 transition duration-300"
